@@ -12,7 +12,7 @@ from sklearn.preprocessing import LabelEncoder
 # the data which the user inputs
 def prediction(indgred1,indgred2,indgred3,indgred4):  
     indgred=[indgred1,indgred2,indgred3,indgred4]
-    model = tf.keras.models.load_model("C:\\Users\\vetri\\Downloads\\cooking_deep.h5")
+    model = tf.keras.models.load_model("cooking_deep.h5")
     indgred_sentence=[",".join(sent for sent in indgred)]
     vectorization_layer = tf.keras.layers.TextVectorization(max_tokens=None, output_mode='int', output_sequence_length=65,split=lambda x: tf.strings.split(x, ','), standardize=lambda x: tf.strings.lower(x))
     vectorization_layer.adapt(indgred_sentence)
